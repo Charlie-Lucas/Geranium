@@ -32,3 +32,11 @@ yarn-error.log
 ###> PhpStorm ###
 /.idea
 ###< PhpStorm ###
+
+###> friends-of-behat/symfony-extension ###
+/behat.yml
+###< friends-of-behat/symfony-extension ###
+
+###> git auth ###
+/auth.json
+###< git auth ###
