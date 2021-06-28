@@ -1,0 +1,34 @@
+App\Entity\User:
+  user_{1..2}:
+    email (unique): <email()>
+    firstname: <firstName()>
+    lastname: <lastName()>
+    username: <userName()>
+    password:  <hashPassword(@user_<current()>, <password()>)>
+    phoneNumber: <phoneNumber()>
+    allowExtraEmails: '50%? true: false'
+  user:
+    email: 'user@example.com'
+    firstname: <firstName()>
+    lastname: <lastName()>
+    username: <userName()>
+    password:  <hashPassword(@user, 'password')>
+    phoneNumber: <phoneNumber()>
+    allowExtraEmails: true
+  user2:
+    email: 'user2@example.com'
+    firstname: <firstName()>
+    lastname: <lastName()>
+    username: <userName()>
+    password:  <hashPassword(@user2, 'password')>
+    phoneNumber: <phoneNumber()>
+    allowExtraEmails: true
+  admin:
+    email: 'admin@example.com'
+    firstname: <firstName()>
+    lastname: <lastName()>
+    username: <userName()>
+    password:  <hashPassword(@admin, 'password')>
+    phoneNumber: <phoneNumber()>
+    allowExtraEmails: '50%? true: false'
+    roles: ['ROLE_ADMIN']
