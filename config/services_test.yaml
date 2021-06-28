@@ -1,5 +1,27 @@
 services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
     test.api_platform.client:
         class: App\ApiPlatform\Test\Client
         arguments: [ '@test.client' ]
         public: true
+
+    App\Tests\Behat\:
+        resource: '../tests/Behat/*'
+    App\Tests\Behat\Context\AliceContext:
+        arguments:
+            - '@kernel'
+            - '@hautelook_alice.locator'
+            - '@hautelook_alice.data_fixtures.purge_loader'
+            - '@doctrine.orm.entity_manager'
+    App\Tests\Behat\Alice\AliceLoader:
+        decorates: 'fidry_alice_data_fixtures.loader.simple'
+        arguments:
+            - '@App\Tests\Behat\Alice\AliceLoader.inner'
+
+    App\Tests\Behat\Alice\FilterFixtureBuilder:
+        decorates: 'nelmio_alice.fixture_builder.simple'
+        arguments:
+            - '@App\Tests\Behat\Alice\FilterFixtureBuilder.inner'

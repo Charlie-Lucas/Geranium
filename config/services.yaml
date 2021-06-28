@@ -34,5 +34,8 @@ services:
         bind:
             $collectionDataProvider: '@api_platform.doctrine.orm.default.collection_data_provider'
             $itemDataProvider: '@api_platform.doctrine.orm.default.item_data_provider'
+    App\DataFixtures\Provider\HashPasswordProvider:
+        tags: [ { name: nelmio_alice.faker.provider } ]
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
