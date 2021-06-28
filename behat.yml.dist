@@ -1,0 +1,14 @@
+default:
+  suites:
+    default:
+      contexts:
+        - 'FeatureContext'
+        - 'App\Tests\Behat\Context\ApiContext'
+        - 'App\Tests\Behat\Context\EntityContext'
+        - 'App\Tests\Behat\Context\AliceContext'
+  extensions:
+    'FriendsOfBehat\SymfonyExtension':
+      bootstrap: tests/bootstrap.php
+      kernel:
+        environment: test
+        class: App\Kernel
